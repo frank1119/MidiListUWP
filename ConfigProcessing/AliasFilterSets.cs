@@ -38,7 +38,7 @@ namespace MidiUWPRouter.ConfigProcessing
                     RealName,
                     CookedRegex
                 }
-
+                 
                 private readonly FilterType filterType;
                 private readonly Regex reg;
                 private readonly string arg;
