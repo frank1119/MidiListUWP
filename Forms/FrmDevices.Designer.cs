@@ -268,7 +268,8 @@
             // 
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.IntegralHeight = false;
             this.listBox1.ItemHeight = 18;

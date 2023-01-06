@@ -83,15 +83,18 @@ namespace MidiUWPRouter.Core
         /// </summary>
         public static void StopRouter()
         {
-            foreach (RouterRule routerRule in routes)
+            if (routes != null)
             {
-                try
+                foreach (RouterRule routerRule in routes)
                 {
-                    routerRule.Close();
+                    try
+                    {
+                        routerRule.Close();
+                    }
+                    catch { }
                 }
-                catch { }
+                routes = null;
             }
-            routes = null;
         }
 
         /// <summary>
