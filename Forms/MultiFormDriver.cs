@@ -7,6 +7,7 @@ using MidiUWPRouter;
 
 namespace MidiUWPRouter.MultiForm
 {
+
     internal class NativeMethods
     {
         [DllImport("user32.dll", EntryPoint = "ShowWindow", SetLastError = true)]
