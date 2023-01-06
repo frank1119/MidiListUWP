@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using static MidiUWPRouter.ConfigProcessing.ConfigReader;
 using static MidiUWPRouter.Core.MidiIn;
+using System.Windows.Forms;
 
 namespace MidiUWPRouter.Core
 {
@@ -47,6 +48,8 @@ namespace MidiUWPRouter.Core
         /// </summary>
         /// <param name="configFileName">The configuration to parse and install</param>
         /// <exception cref="MidiRouterException">Only one router is possible</exception>
+        /// 
+        public static bool IsRunning { get { return routes != null; } }
         public static void StartRouter(string configFileName)
         {
             if (routes != null)

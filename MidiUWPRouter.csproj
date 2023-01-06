@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2F1A3614-D644-41A1-9919-F4984BC907F2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>MidiUWPRouter</RootNamespace>
     <AssemblyName>MidiUWPRouter</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -54,6 +54,9 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -74,10 +77,22 @@
     <Compile Include="DeviceInformationEx.cs" />
     <Compile Include="Core\MidiIn.cs" />
     <Compile Include="Core\MidiOut.cs" />
+    <Compile Include="Forms\Formutils.cs" />
+    <Compile Include="Forms\frmDevices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDevices.Designer.cs">
+      <DependentUpon>frmDevices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MultiFormDriver.cs" />
     <Compile Include="MidiRouterException.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\RouterRule.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -88,6 +103,54 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\1-green-off.png" />
+    <Content Include="Resources\1-red-off.png" />
+    <Content Include="Resources\error.png" />
+    <Content Include="Resources\exclamation.jpg" />
+    <Content Include="Resources\exclamation.png" />
+    <Content Include="Resources\gears.png" />
+    <Content Include="Resources\green-on.png" />
+    <Content Include="Resources\Guitar_Pedal.png" />
+    <Content Include="Resources\information.png" />
+    <Content Include="Resources\lane_green_off.png" />
+    <Content Include="Resources\lane_green_on.png" />
+    <Content Include="Resources\lane_red_off.png" />
+    <Content Include="Resources\lane_red_on.png" />
+    <Content Include="Resources\lane_yellow_off.png" />
+    <Content Include="Resources\lane_yellow_on.png" />
+    <Content Include="Resources\led_green.png" />
+    <Content Include="Resources\led_greenon.png" />
+    <Content Include="Resources\led_red.png" />
+    <Content Include="Resources\led_redon.png" />
+    <Content Include="Resources\led_yellow.png" />
+    <Content Include="Resources\led_yellowon.png" />
+    <Content Include="Resources\minimize.png" />
+    <Content Include="Resources\pedaal1_2.png" />
+    <Content Include="Resources\pedaal1_4.png" />
+    <Content Include="Resources\pedaal1_color.png" />
+    <Content Include="Resources\pedaal1_color2.png" />
+    <Content Include="Resources\pedaal1_yellow.png" />
+    <Content Include="Resources\pngegg.png" />
+    <Content Include="Resources\pushbutton2_2.png" />
+    <Content Include="Resources\pushbutton2_on.png" />
+    <Content Include="Resources\pushbutton3_on.png" />
+    <Content Include="Resources\pushbutton4_on.png" />
+    <Content Include="Resources\Question.jpg" />
+    <Content Include="Resources\red-on.png" />
+    <Content Include="Resources\rubberTraan.png" />
+    <Content Include="Resources\rubberTraan_off.png" />
+    <Content Include="Resources\slideswitchsmall.png" />
+    <Content Include="Resources\slideswitchsmall_off.png" />
+    <Content Include="Resources\slideswitchsmall_on.png" />
+    <Content Include="Resources\sw_green_off.png" />
+    <Content Include="Resources\sw_green_on.png" />
+    <Content Include="Resources\sw_red_off.png" />
+    <Content Include="Resources\sw_red_on.png" />
+    <Content Include="Resources\sw_yellow_off.png" />
+    <Content Include="Resources\sw_yellow_off_cp.png" />
+    <Content Include="Resources\sw_yellow_on.png" />
+    <Content Include="Resources\yellow-off.png" />
+    <Content Include="Resources\yellow-on.png" />
     <Content Include="routerconfig.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -98,5 +161,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\frmDevices.resx">
+      <DependentUpon>frmDevices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
