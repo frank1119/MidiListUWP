@@ -11,6 +11,10 @@ Filter=RegEx:^Dummy.*
 [MIDIIN=BT-Device-IN]
 Filter=RegEx:^.{4}Frank.*
 
+[MIDIIN=BT-Device-Old-IN]
+Filter=ID:SWD\MMDEVAPI\MIDII_D6DBFD1E.BLE10
+
+
 [MIDIIN=Cable-a-Device-In]
 Filter=ID:SWD\MMDEVAPI\MIDII_0AB1A388.P_0004
 
@@ -29,9 +33,9 @@ SOURCE=BT-Device-IN
 DESTINATION=Cable-b-Device-Out
 
 [ROUTE=rt3]
-SOURCE=LPD8-Device-IN
-DESTINATION=Cable-a-Device-Out
+SOURCE=BT-Device-Old-IN
+DESTINATION=Cable-b-Device-Out
 
-[ROUTE=rt4]
+[ROUTE=rt4]#
 SOURCE=Cable-a-Device-In
 DESTINATION=Cable-b-Device-Out

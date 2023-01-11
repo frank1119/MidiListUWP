@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace MidiUWPRouter
@@ -70,12 +71,12 @@ namespace MidiUWPRouter
 
             foreach (var item in sortedMidiIn)
             {
-                AddOrUpdate(CheckState.Checked, item.DeviceInformation.Name, item.CookedName, item.DeviceInformation.Id);
+                AddOrUpdate(CheckState.Checked, item.DeviceInformation.Name, item.CookedName, item.DeviceInformation.Properties["System.Devices.DeviceInstanceId"].ToString());
             }
 
             foreach (var item in sortedMidiOut)
             {
-                AddOrUpdate(CheckState.Unchecked, item.DeviceInformation.Name, item.CookedName, item.DeviceInformation.Id);
+                AddOrUpdate(CheckState.Unchecked, item.DeviceInformation.Name, item.CookedName, item.DeviceInformation.Properties["System.Devices.DeviceInstanceId"].ToString());
             }
 
             if (dgvDeviceList.Rows.Count > 0)
@@ -87,6 +88,9 @@ namespace MidiUWPRouter
                 dgvDeviceList.ClearSelection();
                 dgvDeviceList.Rows[0].Selected = true;
             }
+
+            frmAddFiltersToAlias frm2 = new frmAddFiltersToAlias();
+            frm2.Show();
         }
 
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
@@ -439,5 +443,44 @@ namespace MidiUWPRouter
         }
         #endregion
 
+
+
+        private void dgvDeviceList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // .Right -> Context Menu
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DnDCell dnd = new DnDCell();
+                    dnd.row = dgvDeviceList.Rows[e.RowIndex];
+
+                    var res = dgvDeviceList.DoDragDrop(dnd, DragDropEffects.Copy);
+                }
+            }
+        }
+
+        // Full Color
+        private static Cursor newCursor2 = new Cursor(global::MidiUWPRouter.Properties.Resources.noun_midi_2965_81.GetHicon());
+
+        private void dgvDeviceList_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+            e.UseDefaultCursors = false;
+            Cursor.Current = newCursor2;
+
+
+        }
+
+        private void pictClose_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    [Serializable]
+    public class DnDCell
+    {
+        public DataGridViewRow row;
+        public DataGridViewCell cell;
     }
 }

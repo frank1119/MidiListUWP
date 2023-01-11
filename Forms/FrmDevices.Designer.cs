@@ -45,16 +45,16 @@
             this.mnuGetInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCopySelectionToClipboard = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTitel = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictClose = new System.Windows.Forms.PictureBox();
             this.saveFileCSVDialog = new System.Windows.Forms.SaveFileDialog();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictClose = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeviceList)).BeginInit();
             this.cmnuDevices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDeviceList
@@ -113,6 +113,8 @@
             this.dgvDeviceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDeviceList.Size = new System.Drawing.Size(674, 191);
             this.dgvDeviceList.TabIndex = 0;
+            this.dgvDeviceList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDeviceList_CellMouseDown);
+            this.dgvDeviceList.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.dgvDeviceList_GiveFeedback);
             // 
             // in_out
             // 
@@ -216,48 +218,6 @@
             this.lblTitel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
             this.lblTitel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.AccessibleName = "MIDI Devices form Close";
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BackgroundImage = global::MidiUWPRouter.Properties.Resources.minimize;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(671, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.AccessibleName = "MIDI Devices form Resize";
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.pictureBox1.Location = new System.Drawing.Point(685, 393);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(14, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Resize_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Resize_MouseMove);
-            // 
-            // pictClose
-            // 
-            this.pictClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictClose.Image = global::MidiUWPRouter.Properties.Resources.Guitar_Pedal;
-            this.pictClose.Location = new System.Drawing.Point(13, 13);
-            this.pictClose.Margin = new System.Windows.Forms.Padding(4);
-            this.pictClose.Name = "pictClose";
-            this.pictClose.Size = new System.Drawing.Size(35, 35);
-            this.pictClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictClose.TabIndex = 23;
-            this.pictClose.TabStop = false;
-            this.pictClose.DoubleClick += new System.EventHandler(this.PictClose_DoubleClick);
-            // 
             // saveFileCSVDialog
             // 
             this.saveFileCSVDialog.DefaultExt = "csv";
@@ -277,6 +237,50 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(674, 119);
             this.listBox1.TabIndex = 26;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.AccessibleName = "MIDI Devices form Close";
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackgroundImage = global::MidiUWPRouter.Properties.Resources.minimize1;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.InitialImage = global::MidiUWPRouter.Properties.Resources.minimize1;
+            this.pictureBox2.Location = new System.Drawing.Point(661, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 22);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
+            // 
+            // pictClose
+            // 
+            this.pictClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictClose.Image = global::MidiUWPRouter.Properties.Resources.Guitar_Pedal1;
+            this.pictClose.Location = new System.Drawing.Point(13, 13);
+            this.pictClose.Margin = new System.Windows.Forms.Padding(4);
+            this.pictClose.Name = "pictClose";
+            this.pictClose.Size = new System.Drawing.Size(35, 35);
+            this.pictClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictClose.TabIndex = 23;
+            this.pictClose.TabStop = false;
+            this.pictClose.Click += new System.EventHandler(this.pictClose_Click);
+            this.pictClose.DoubleClick += new System.EventHandler(this.PictClose_DoubleClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.AccessibleName = "MIDI Devices form Resize";
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.pictureBox1.Location = new System.Drawing.Point(685, 393);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(14, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Resize_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Resize_MouseMove);
             // 
             // FrmDevices
             // 
@@ -307,8 +311,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeviceList)).EndInit();
             this.cmnuDevices.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

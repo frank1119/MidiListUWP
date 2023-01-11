@@ -15,7 +15,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>7.3</LangVersion>
     <PublishUrl>D:\trp\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,13 +25,13 @@
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
+    <MapFileExtensions>false</MapFileExtensions>
     <SupportUrl>https://github.com/frank1119/MidiListUWP</SupportUrl>
     <ErrorReportUrl>https://github.com/frank1119/MidiListUWP</ErrorReportUrl>
     <ProductName>MidiUWPRouter</ProductName>
     <PublisherName>Frank1119</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>0.9.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -62,7 +62,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
@@ -72,7 +72,7 @@
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
@@ -89,7 +89,7 @@
     <ManifestKeyFile>MidiUWPRouter_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -117,10 +117,16 @@
     <Compile Include="ConfigProcessing\ConfigReader.cs" />
     <Compile Include="ConfigProcessing\DeviceComparer.cs" />
     <Compile Include="Core\Router.cs" />
-    <Compile Include="DeviceInformationEx.cs" />
+    <Compile Include="ConfigProcessing\DeviceInformationEx.cs" />
     <Compile Include="Core\MidiIn.cs" />
     <Compile Include="Core\MidiOut.cs" />
     <Compile Include="Forms\Formutils.cs" />
+    <Compile Include="Forms\frmAddFiltersToAlias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddFiltersToAlias.Designer.cs">
+      <DependentUpon>frmAddFiltersToAlias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDevices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,7 +134,7 @@
       <DependentUpon>frmDevices.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MultiFormDriver.cs" />
-    <Compile Include="MidiRouterException.cs" />
+    <Compile Include="Core\MidiRouterException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\RouterRule.cs" />
     <Compile Include="Properties\Resources1.Designer.cs">
@@ -149,12 +155,14 @@
     <Content Include="Guitar_Pedal.ico" />
     <Content Include="Resources\1-green-off.png" />
     <Content Include="Resources\1-red-off.png" />
+    <Content Include="Resources\Cursor1.cur" />
     <Content Include="Resources\error.png" />
     <Content Include="Resources\exclamation.jpg" />
     <Content Include="Resources\exclamation.png" />
     <Content Include="Resources\gears.png" />
     <Content Include="Resources\green-on.png" />
     <Content Include="Resources\Guitar_Pedal.png" />
+    <None Include="Resources\Guitar_Pedal1.png" />
     <Content Include="Resources\information.png" />
     <Content Include="Resources\lane_green_off.png" />
     <Content Include="Resources\lane_green_on.png" />
@@ -168,13 +176,22 @@
     <Content Include="Resources\led_redon.png" />
     <Content Include="Resources\led_yellow.png" />
     <Content Include="Resources\led_yellowon.png" />
+    <None Include="Resources\midi.ani" />
+    <None Include="Resources\MidiIcon.ico" />
+    <None Include="Resources\midi_port_icon.ico" />
+    <None Include="Resources\midi_port_icon_135398.ico" />
+    <None Include="Resources\midi_port_icon_135398.png" />
     <Content Include="Resources\minimize.png" />
+    <None Include="Resources\noun-midi-2965-8.ico" />
+    <None Include="Resources\noun-midi-2965-8.png" />
+    <None Include="Resources\minimize1.png" />
     <Content Include="Resources\pedaal1_2.png" />
     <Content Include="Resources\pedaal1_4.png" />
     <Content Include="Resources\pedaal1_color.png" />
     <Content Include="Resources\pedaal1_color2.png" />
     <Content Include="Resources\pedaal1_yellow.png" />
     <Content Include="Resources\pngegg.png" />
+    <None Include="Resources\pngwing.com.png" />
     <Content Include="Resources\pushbutton2_2.png" />
     <Content Include="Resources\pushbutton2_on.png" />
     <Content Include="Resources\pushbutton3_on.png" />
@@ -208,6 +225,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\frmAddFiltersToAlias.resx">
+      <DependentUpon>frmAddFiltersToAlias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDevices.resx">
       <DependentUpon>frmDevices.cs</DependentUpon>
     </EmbeddedResource>
